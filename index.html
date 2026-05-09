@@ -14,229 +14,210 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #05070f; color: #e2e8f0; line-height: 1.5; transition: background 0.3s; }
         body.dark-mode { background: #010105; color: #fff; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1rem; }
-        .header { background: linear-gradient(135deg, #0a0f1f, #1a1a3a, #00b4d8); border-radius: 2rem; padding: 1.2rem 2rem; margin-bottom: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
-        .logo { display: flex; align-items: center; gap: 1rem; }
-        .logo img { height: 50px; border-radius: 12px; }
-        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(to right, #00f3ff, #00ff9d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo span { font-size: 0.8rem; color: #b0f0ff; display: block; }
-        .nav { display: flex; gap: 0.6rem; flex-wrap: wrap; }
-        .nav button, .nav a { color: #fff; background: rgba(0,243,255,0.15); border: 1px solid rgba(0,243,255,0.4); border-radius: 2rem; padding: 0.4rem 1rem; cursor: pointer; font-family: inherit; transition: 0.2s; font-size: 0.85rem; text-decoration: none; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 1rem; }
+        .header { background: linear-gradient(135deg, #0a0f1f, #1a1a3a, #00b4d8); border-radius: 2rem; padding: 1rem 1.5rem; margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+        .logo { display: flex; align-items: center; gap: 0.8rem; }
+        .logo img { height: 45px; border-radius: 12px; }
+        .logo h1 { font-size: 1.5rem; font-weight: 800; background: linear-gradient(to right, #00f3ff, #00ff9d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav button, .nav a { color: #fff; background: rgba(0,243,255,0.15); border: 1px solid rgba(0,243,255,0.4); border-radius: 2rem; padding: 0.4rem 0.8rem; cursor: pointer; font-family: inherit; font-size: 0.8rem; margin: 0 0.2rem; }
         .main-layout { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-        .sidebar { width: 300px; background: rgba(10,15,31,0.9); border-radius: 1.5rem; padding: 1.2rem; border: 1px solid rgba(0,243,255,0.3); height: fit-content; }
+        .sidebar { width: 280px; background: rgba(10,15,31,0.9); border-radius: 1.5rem; padding: 1rem; border: 1px solid rgba(0,243,255,0.3); }
         .content-area { flex: 1; background: rgba(10,15,31,0.9); border-radius: 1.5rem; padding: 1.5rem; border: 1px solid rgba(0,243,255,0.3); }
-        .tree { list-style: none; padding-left: 0; }
-        .tree details { margin-left: 0.5rem; margin-top: 0.3rem; }
-        .tree summary { font-weight: 600; color: #00ff9d; cursor: pointer; padding: 0.3rem 0; font-size: 0.95rem; }
-        .tree .tema-item { padding-left: 1.5rem; margin: 0.3rem 0; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
-        .tree .tema-item.completado { text-decoration: line-through; opacity: 0.6; }
-        .btn-completar { background: #00ff9d; color: #05070f; border: none; padding: 0.4rem 1rem; border-radius: 2rem; font-weight: 700; cursor: pointer; margin: 1rem 0; }
-        .editor-panel { margin-top: 1.5rem; border-top: 2px solid #00f3ff; padding-top: 1rem; }
-        .CodeMirror { height: auto; min-height: 180px; border-radius: 1rem; background: #0a0f1f; }
-        .terminal { background: #010105; padding: 0.8rem; border-radius: 1rem; font-family: monospace; margin-top: 1rem; white-space: pre-wrap; max-height: 150px; overflow-y: auto; font-size: 0.8rem; }
-        .intro-block { background: rgba(10,15,31,0.85); backdrop-filter: blur(12px); border-radius: 2rem; padding: 1.5rem; margin-bottom: 2rem; border: 1px solid rgba(0,243,255,0.5); }
-        .badge-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1rem 0; }
-        .badge-item { background: rgba(0,243,255,0.1); border-radius: 2rem; padding: 0.3rem 1rem; color: #00ff9d; font-size: 0.8rem; }
-        .mensaje-exito, .mensaje-error, .mensaje-info { padding: 0.7rem; border-radius: 2rem; text-align: center; margin: 0.8rem 0; display: none; }
-        .mensaje-exito { background: #00ff9d22; color: #00ff9d; border: 1px solid #00ff9d; }
-        .mensaje-error { background: #ff336622; color: #ff6699; border: 1px solid #ff3366; }
-        .mensaje-info { background: #00f3ff22; color: #00f3ff; border: 1px solid #00f3ff; }
-        .oculto { display: none; }
+        .tree { list-style: none; }
+        .tree details { margin-left: 0.5rem; margin-top: 0.2rem; }
+        .tree summary { font-weight: 600; color: #00ff9d; cursor: pointer; font-size: 0.9rem; }
+        .tema-item { padding-left: 1rem; margin: 0.2rem 0; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+        .tema-item.completado { text-decoration: line-through; opacity: 0.6; }
+        .btn-completar { background: #00ff9d; color: #05070f; border: none; padding: 0.3rem 0.8rem; border-radius: 2rem; font-weight: 700; margin: 0.5rem 0; cursor: pointer; }
+        .CodeMirror { height: auto; min-height: 160px; border-radius: 1rem; background: #0a0f1f; }
+        .terminal { background: #010105; padding: 0.8rem; border-radius: 1rem; font-family: monospace; font-size: 0.75rem; margin-top: 1rem; white-space: pre-wrap; max-height: 120px; overflow-y: auto; }
+        .intro-block { background: rgba(10,15,31,0.85); border-radius: 2rem; padding: 1.5rem; margin-bottom: 1rem; border: 1px solid rgba(0,243,255,0.5); }
+        .badge-item { background: rgba(0,243,255,0.1); border-radius: 2rem; padding: 0.2rem 1rem; display: inline-block; margin-right: 0.5rem; color: #00ff9d; }
         .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.8rem; }
-        .field { display: flex; flex-direction: column; gap: 0.2rem; margin-bottom: 0.5rem; }
-        input, select { padding: 0.6rem; border: 1.5px solid #00f3ff55; border-radius: 1.2rem; background: #0a0f1f; color: #e2e8f0; outline: none; width: 100%; }
-        .btn-submit { background: #00f3ff; color: #05070f; font-weight: 800; padding: 0.6rem 1.5rem; border: none; border-radius: 2rem; cursor: pointer; transition: 0.2s; width: 100%; margin-top: 1rem; }
-        .footer-note { text-align: center; color: #6c86a3; font-size: 0.7rem; margin-top: 2rem; }
-        .drawer { position: fixed; top: 0; left: -280px; width: 280px; height: 100%; background: #0a0f1f; border-right: 2px solid #00f3ff; transition: left 0.3s; padding: 1.5rem; z-index: 200; }
+        input, select { width: 100%; padding: 0.5rem; border-radius: 1rem; background: #0a0f1f; border: 1px solid #00f3ff55; color: white; }
+        .btn-submit { background: #00f3ff; color: #05070f; font-weight: bold; padding: 0.5rem; border-radius: 2rem; cursor: pointer; width: 100%; margin-top: 0.8rem; border: none; }
+        .loader { display: inline-block; width: 18px; height: 18px; border: 2px solid #00f3ff; border-radius: 50%; border-top-color: transparent; animation: spin 0.6s linear infinite; margin-left: 8px; vertical-align: middle; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .resumen-tree { background: rgba(0,255,157,0.05); border-radius: 0.8rem; padding: 0.5rem; font-family: monospace; white-space: pre-wrap; margin: 0.5rem 0; }
+        .oculto { display: none; }
+        .drawer { position: fixed; top: 0; left: -280px; width: 260px; height: 100%; background: #0a0f1f; border-right: 2px solid #00f3ff; transition: left 0.3s; padding: 1rem; z-index: 200; }
         .drawer.open { left: 0; }
         .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 199; display: none; }
         .drawer-overlay.open { display: block; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 300; justify-content: center; align-items: center; }
         .modal.active { display: flex; }
-        .modal-content { background: #0a0f1f; border-radius: 1.5rem; padding: 1.5rem; max-width: 90%; width: 450px; border: 1px solid #00f3ff; }
-        .close-drawer, .modal-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #fff; align-self: flex-end; }
-        .loader { display: inline-block; width: 20px; height: 20px; border: 3px solid #00f3ff; border-radius: 50%; border-top-color: transparent; animation: spin 0.6s linear infinite; margin-left: 10px; vertical-align: middle; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .resumen-tree { display: block; margin: 1rem 0; padding: 0.5rem; background: rgba(0,255,157,0.05); border-radius: 0.8rem; font-family: monospace; white-space: pre-wrap; }
-        @media (max-width: 768px) { .sidebar { width: 100%; } .main-layout { flex-direction: column; } .logo img { height: 35px; } .logo h1 { font-size: 1.2rem; } }
+        .modal-content { background: #0a0f1f; border-radius: 1.5rem; padding: 1rem; width: 90%; max-width: 400px; border: 1px solid #00f3ff; }
+        @media (max-width: 700px) { .sidebar { width: 100%; } .main-layout { flex-direction: column; } .logo h1 { font-size: 1.2rem; } }
     </style>
 </head>
 <body>
-<div class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'});"><i class="fas fa-arrow-up"></i></div>
 <div class="container">
     <header class="header">
         <div class="logo">
-            <img src="img/logo_sgo_class.png" alt="Logo SGO Class" onerror="this.style.display='none'">
-            <div><h1><i class="fas fa-microchip"></i> SGO Class</h1><span>Arquitectura de Software Industrial · Práctica Endocentrada</span></div>
+            <img src="img/logo_sgo_class.png" alt="Logo" onerror="this.style.display='none'">
+            <h1>SGO Class</h1>
         </div>
-        <nav class="nav">
-            <button id="profileBtn"><i class="fas fa-user-circle"></i> Perfil</button>
-            <button id="attendanceBtn"><i class="fas fa-check-circle"></i> Asistencia</button>
-            <button id="adminBtn"><i class="fas fa-user-cog"></i> Admin</button>
-            <button id="darkModeToggle"><i class="fas fa-moon"></i> Oscuro</button>
-        </nav>
+        <div class="nav">
+            <button id="profileBtn"><i class="fas fa-user"></i> Perfil</button>
+            <button id="attendanceBtn"><i class="fas fa-calendar"></i> Asistencia</button>
+            <button id="adminBtn"><i class="fas fa-cog"></i> Admin</button>
+            <button id="darkModeToggle">🌙</button>
+        </div>
     </header>
 
-    <section id="verificationSection" class="intro-block">
-        <h2><i class="fas fa-brain"></i> Acceso al Laboratorio</h2>
-        <p>Ingresa tu cédula para iniciar tu transformación a Arquitecto de Software.</p>
-        <div class="badge-row"><span class="badge-item"><i class="fas fa-id-card"></i> Cédula</span><span class="badge-item"><i class="fas fa-arrow-right"></i> Acceder</span></div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:0.8rem;">
-            <input type="text" id="cedulaInput" placeholder="V-12345678" style="text-align:center; width:260px;">
-            <div id="loaderIndicator" style="display:none;"><span class="loader"></span> Verificando...</div>
-            <div id="verificationStatus" class="mensaje-info" style="display:none;"></div>
-            <button id="registerDirectBtn" class="btn-submit" style="display:none; width:auto;">Registrar nuevo usuario</button>
+    <!-- PANTALLA DE ACCESO (CÉDULA + BOTÓN) -->
+    <div id="accesoPanel" class="intro-block">
+        <h2>🔐 Acceso al Laboratorio</h2>
+        <p>Ingresa tu cédula para iniciar tu práctica</p>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; margin-top: 1rem;">
+            <input type="text" id="cedulaInput" placeholder="Número de cédula" style="flex: 2; min-width: 180px;">
+            <button id="btnAcceder" class="btn-submit" style="width: auto; margin-top: 0;">Acceder</button>
         </div>
-    </section>
-
-    <div id="registrationSection" class="oculto">
-        <section class="intro-block">
-            <h2>🧬 Registro de Arquitecto</h2>
-            <div class="grid-2">
-                <div class="field"><label>Nombres *</label><input type="text" id="nombres"></div>
-                <div class="field"><label>Apellidos *</label><input type="text" id="apellidos"></div>
-                <div class="field"><label>Teléfono *</label><input type="tel" id="telefono" placeholder="+58 412 1234567"></div>
-                <div class="field"><label>Correo *</label><input type="email" id="email" placeholder="ejemplo@dominio.com"></div>
-                <div class="field"><label>Núcleo</label><select id="nucleo"><option>La Floresta</option><option>Altagracia</option></select></div>
-                <div class="field"><label>Semestre</label><select id="semestre"><option>I</option><option>II</option><option>III</option><option>IV</option></select></div>
-            </div>
-            <button id="registerUserBtn" class="btn-submit">Guardar y acceder</button>
-        </section>
+        <div id="accesoStatus" class="mensaje-info" style="display:none; margin-top: 1rem;"></div>
+        <div id="accesoLoader" style="display:none; margin-top: 0.5rem;"><span class="loader"></span> Verificando...</div>
     </div>
 
-    <div id="contenidoPrincipal" class="oculto">
+    <!-- FORMULARIO REGISTRO (con teléfono y correo) -->
+    <div id="registroPanel" class="intro-block oculto">
+        <h2>📝 Registro de Arquitecto</h2>
+        <div class="grid-2">
+            <input type="text" id="regNombres" placeholder="Nombres *">
+            <input type="text" id="regApellidos" placeholder="Apellidos *">
+            <input type="tel" id="regTelefono" placeholder="Teléfono *">
+            <input type="email" id="regEmail" placeholder="Correo *">
+            <select id="regNucleo"><option>La Floresta</option><option>Altagracia</option></select>
+            <select id="regSemestre"><option>I</option><option>II</option><option>III</option><option>IV</option></select>
+        </div>
+        <button id="btnRegistrar" class="btn-submit">Registrar y acceder</button>
+        <button id="btnVolverAcceso" class="btn-submit" style="background:#555; margin-top:0.5rem;">Volver</button>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL DEL CURSO (se muestra tras login) -->
+    <div id="contenidoCurso" class="oculto">
         <div class="main-layout">
-            <div class="sidebar"><h3><i class="fas fa-cubes"></i> Fases y Módulos</h3><div id="arbolNavegacion"></div></div>
+            <div class="sidebar">
+                <h3><i class="fas fa-cubes"></i> Fases y Módulos</h3>
+                <div id="arbolNavegacion"></div>
+            </div>
             <div class="content-area">
                 <div id="contenidoTema"></div>
-                <button id="btnCompletarTema" class="btn-completar" style="display:none;">✓ Marcar como completado</button>
-                <div class="editor-panel">
-                    <h3><i class="fas fa-code"></i> Laboratorio de código (Python)</h3>
+                <button id="btnCompletarTema" class="btn-completar" style="display:none;">✓ Completar tema</button>
+                <div class="editor-panel" style="margin-top: 1.5rem;">
+                    <h3>🐍 Laboratorio Python</h3>
                     <textarea id="codeEditor"></textarea>
-                    <button id="runCodeBtn" class="btn-completar" style="margin-top:0.5rem;"><i class="fas fa-play"></i> Ejecutar</button>
-                    <div id="terminal" class="terminal">>> Listo para ejecutar código Python...</div>
+                    <button id="runCodeBtn" class="btn-completar">Ejecutar código</button>
+                    <div id="terminal" class="terminal">>> Listo</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer-note">⚡ SGO Class · Aprendizaje construyendo · Arquitectura Industrial</div>
+
+    <div class="footer-note" style="text-align:center; font-size:0.7rem; margin-top:2rem;">SGO Class · Arquitectura de Software Industrial</div>
 </div>
 
+<!-- Drawer perfil -->
 <div class="drawer-overlay" id="drawerOverlay"></div>
-<div class="drawer" id="profileDrawer"><button class="close-drawer" id="closeDrawerBtn">&times;</button><h3>Mi perfil</h3><div id="drawerUserInfo"></div></div>
-<div id="attendanceModal" class="modal"><div class="modal-content"><span class="modal-close" id="closeAttendanceModal">&times;</span><h2>Asistencia</h2><input type="date" id="attendanceDate"><select id="attendanceClassId"></select><select id="attendanceStatus"><option value="Sí">Presente</option><option value="No">Ausente</option></select><button id="saveAttendanceBtn" class="btn-submit">Guardar</button><div id="attendanceMessage" class="mensaje-info"></div></div></div>
-<div id="adminModal" class="modal"><div class="modal-content"><span class="modal-close" id="closeAdminModal">&times;</span><h2>Admin</h2><input type="password" id="adminPassword" placeholder="Contraseña"><button id="loginAdminBtn">Acceder</button><div id="adminPanel" style="display:none;"><h3>Gestión de clases</h3><div id="classConfigContainer"></div><button id="saveClassConfigBtn">Guardar</button></div></div></div>
+<div class="drawer" id="profileDrawer"><button class="close-drawer" id="closeDrawerBtn">&times;</button><h3>Mi perfil</h3><div id="drawerInfo"></div></div>
+
+<!-- Modales -->
+<div id="attendanceModal" class="modal"><div class="modal-content"><span class="modal-close" id="closeAttendanceModal">&times;</span><h3>Asistencia</h3><input type="date" id="attDate"><select id="attClase"></select><select id="attStatus"><option>Sí</option><option>No</option></select><button id="saveAttendanceBtn">Guardar</button></div></div>
+<div id="adminModal" class="modal"><div class="modal-content"><span class="modal-close" id="closeAdminModal">&times;</span><h3>Admin</h3><input type="password" id="adminPass" placeholder="Contraseña"><button id="loginAdminBtn">Acceder</button><div id="adminPanel" style="display:none; margin-top:1rem;">Configuración (demo)</div></div></div>
 
 <script src="https://cdn.jsdelivr.net/pyodide/v0.26.1/full/pyodide.js"></script>
 <script>
-    // ==================== CONFIGURACIÓN ====================
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby_ZbCVN8NLgRhIr68Cax57pJAFOX04_XGtKE7gSU7kfhyPO7EgAxV3Mf1qFBCIW75bZA/exec";
-    let usuarioActual = { cedula: '', nombres: '', apellidos: '', telefono: '', email: '', nucleo: '', pnf: 'Arquitectura Software', trayecto: 'Arquitectura Industrial', semestre: '' };
-    let progresoUsuario = {};
-    let temaSeleccionado = null;
-    let pyodide = null;
+    // ---------- CONFIGURACIÓN ----------
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby_ZbCVN8NLgRhIr68Cax57pJAFOX04_XGtKE7gSU7kfhyPO7EgAxV3Mf1qFBCIW75bZA/exec";
+    let usuario = { cedula: '', nombres: '', apellidos: '', telefono: '', email: '', nucleo: '', semestre: '' };
+    let progreso = {};
     let editor = null;
+    let pyodide = null;
+    let temaActual = null;
 
-    // ==================== ESTRUCTURA DEL CURSO (igual que antes, con resúmenes) ====================
-    const cursoEstructura = {
+    // ---------- ESTRUCTURA DEL CURSO (8 módulos, resúmenes tipo tree) ----------
+    const estructuraCurso = {
         trayectos: [{
             titulo: "Arquitectura de Software Industrial",
             semestres: [
                 { titulo: "⚙️ FASE I: Infraestructura", clases: [
                     { id: "mod1", titulo: "Módulo 1: Patrones de Diseño", temas: [
-                        { id: "t1_1", titulo: "1.1 Singleton y ConfigManager", contenido: { texto: "El patrón Singleton asegura una única instancia del gestor de configuración.", resumen: "📁 Estructura:\nconfig/\n└── rules.json\nsrc/\n├── config_manager.py (Singleton)\n└── main.py", codigo_ejemplo: "class ConfigManager:\n    _instance = None\n    def __new__(cls):\n        if cls._instance is None:\n            cls._instance = super().__new__(cls)\n        return cls._instance\n\nc1 = ConfigManager()\nc2 = ConfigManager()\nprint('Misma instancia:', c1 is c2)" } },
-                        { id: "t1_2", titulo: "1.2 Command y Strategy", contenido: { texto: "Command separa solicitud de lógica. Strategy permite dry-run vs real.", resumen: "🔄 Modos de ejecución:\n- Command: organizar, limpiar, reporte\n- Strategy: SimulationStrategy (dry-run)\n  vs ExecutionStrategy (real)", codigo_ejemplo: "class SimulationStrategy:\n    def execute(self): return 'Simulación'\nclass RealStrategy:\n    def execute(self): return 'Real'\n\ndef organizar(strategy):\n    return strategy.execute()\n\nprint(organizar(SimulationStrategy()))" } }
+                        { id: "t1_1", titulo: "1.1 Singleton", contenido: { texto: "Singleton asegura una única instancia.", resumen: "📁 Estructura:\nconfig/\n└── rules.json\nsrc/\n├── config_manager.py (Singleton)", codigo: "class ConfigManager:\n    _instance = None\n    def __new__(cls):\n        if cls._instance is None:\n            cls._instance = super().__new__(cls)\n        return cls._instance" } },
+                        { id: "t1_2", titulo: "1.2 Command y Strategy", contenido: { texto: "Command separa solicitud, Strategy permite dry-run.", resumen: "🔄 Modos: Command (organizar) / Strategy (simulación)", codigo: "class SimulationStrategy:\n    def execute(self): return 'simulación'" } }
                     ] },
                     { id: "mod2", titulo: "Módulo 2: FS Automation", temas: [
-                        { id: "t2_1", titulo: "2.1 pathlib y logging", contenido: { texto: "Uso de pathlib para rutas y logging para trazabilidad.", resumen: "📂 Automatización de bajo nivel:\n- pathlib: rutas OOP\n- logging: registro de eventos\n- os: operaciones del sistema", codigo_ejemplo: "from pathlib import Path\nimport logging\nlogging.basicConfig(level=logging.INFO)\np = Path('output')\np.mkdir(exist_ok=True)\nlogging.info(f'Directorio {p.absolute()} creado')" } },
-                        { id: "t2_2", titulo: "2.2 Modo dry-run con Strategy", contenido: { texto: "Previsualiza cambios sin mover archivos.", resumen: "🛡️ Simulación segura:\n- Activar con --dry-run\n- Solo logs, sin escritura\n- Validación de reglas antes de aplicar", codigo_ejemplo: "class DryRunStrategy:\n    def move(self, src, dst):\n        print(f'[DRY-RUN] Mover {src} -> {dst}')\nclass RealStrategy:\n    def move(self, src, dst):\n        from pathlib import Path\n        Path(src).rename(dst)\nstrategy = DryRunStrategy()\nstrategy.move('a.txt', 'b.txt')" } }
+                        { id: "t2_1", titulo: "2.1 pathlib y logging", contenido: { texto: "pathlib para rutas, logging para trazabilidad.", resumen: "📂 Librerías: pathlib, os, logging", codigo: "from pathlib import Path\nPath('output').mkdir(exist_ok=True)" } },
+                        { id: "t2_2", titulo: "2.2 Dry-run", contenido: { texto: "Previsualiza cambios sin mover archivos.", resumen: "🛡️ Simulación segura con flag --dry-run", codigo: "class DryRunStrategy: def move(self,src,dst): print(f'[DRY] {src} -> {dst}')" } }
                     ] }
                 ] },
                 { titulo: "🧠 FASE II: Inteligencia", clases: [
-                    { id: "mod3", titulo: "Módulo 3: Computer Vision", temas: [{ id: "t3_1", titulo: "3.1 Hashing Perceptual", contenido: { texto: "A-Hash y D-Hash con OpenCV y NumPy.", resumen: "🖼️ Huellas digitales visuales:\n- A-Hash: promedio de píxeles\n- D-Hash: diferencia de gradientes\n- Ignora nombres de archivo", codigo_ejemplo: "import cv2\nimport numpy as np\ndef d_hash(img_path, size=8):\n    img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)\n    img = cv2.resize(img, (size+1, size))\n    diff = img[:,1:] > img[:,:-1]\n    return sum([2**i for i, v in enumerate(diff.flatten()) if v])" } }] },
-                    { id: "mod4", titulo: "Módulo 4: Audio", temas: [{ id: "t4_1", titulo: "4.1 Vectorización", contenido: { texto: "Extracción de características con NumPy.", resumen: "🎵 Análisis de audio:\n- Convertir frecuencia a vectores\n- Identificar patrones sonoros\n- Clasificación por contenido real", codigo_ejemplo: "import numpy as np\ndef extract_features(audio_array):\n    return np.mean(audio_array, axis=0)" } }] },
-                    { id: "mod5", titulo: "Módulo 5: TF-IDF", temas: [{ id: "t5_1", titulo: "5.1 Coseno de Similitud", contenido: { texto: "TF-IDF convierte texto en vectores y el coseno mide cercanía.", resumen: "📄 Análisis semántico:\n- TF-IDF → vectores numéricos\n- Coseno de similitud → distancia temática\n- Agrupación por conceptos", codigo_ejemplo: "import numpy as np\nfrom sklearn.feature_extraction.text import TfidfVectorizer\ndocs = ['El gato juega', 'El perro ladra']\nvectorizer = TfidfVectorizer()\nvectors = vectorizer.fit_transform(docs)\ncos_sim = (vectors[0] @ vectors[1].T).toarray()[0][0]\nprint(f'Similitud: {cos_sim}')" } }] },
-                    { id: "mod6", titulo: "Módulo 6: Clustering", temas: [{ id: "t6_1", titulo: "6.1 KMeans con Scikit-learn", contenido: { texto: "Agrupación no supervisada.", resumen: "🧩 Clustering:\n- Encuentra patrones sin etiquetas\n- Crea carpetas lógicas (Media, Documents, etc.)\n- Usa Scikit-learn", codigo_ejemplo: "from sklearn.cluster import KMeans\nimport numpy as np\nX = np.array([[1,2],[1,4],[10,2],[10,4]])\nkmeans = KMeans(n_clusters=2).fit(X)\nprint(kmeans.labels_)" } }] }
+                    { id: "mod3", titulo: "Módulo 3: Computer Vision", temas: [{ id: "t3_1", titulo: "Hashing Perceptual", contenido: { texto: "A-Hash y D-Hash con OpenCV", resumen: "🖼️ D-Hash:\n- resize\n- diff gradientes\n- fingerprint", codigo: "def d_hash(img):\n    # implementación conceptual" } }] },
+                    { id: "mod4", titulo: "Módulo 4: Audio", temas: [{ id: "t4_1", titulo: "Vectorización", contenido: { texto: "Extracción de features con NumPy", resumen: "🎵 Convertir audio a vectores", codigo: "import numpy as np\ndef extract(a): return np.mean(a)" } }] },
+                    { id: "mod5", titulo: "Módulo 5: TF-IDF", temas: [{ id: "t5_1", titulo: "Coseno de Similitud", contenido: { texto: "TF-IDF + coseno", resumen: "📄 Similitud entre documentos", codigo: "from sklearn.feature_extraction.text import TfidfVectorizer" } }] },
+                    { id: "mod6", titulo: "Módulo 6: Clustering", temas: [{ id: "t6_1", titulo: "KMeans", contenido: { texto: "Agrupación no supervisada", resumen: "🧩 Scikit-learn KMeans", codigo: "from sklearn.cluster import KMeans" } }] }
                 ] },
-                { titulo: "💻 FASE III: CLI UX", clases: [{ id: "mod7", titulo: "Módulo 7: Click y Rich", temas: [{ id: "t7_1", titulo: "7.1 CLI industrial", contenido: { texto: "Comandos organizar, limpiar, reporte con flag --dry-run.", resumen: "⌨️ Interfaz profesional:\n- Click: estructura de comandos\n- Rich: tablas, colores, progreso\n- Comandos: organizar, limpiar, reporte", codigo_ejemplo: "import click\n@click.command()\n@click.option('--dry-run', is_flag=True)\ndef organizar(dry_run):\n    if dry_run:\n        click.echo('Simulación')\n    else:\n        click.echo('Ejecución real')\nif __name__ == '__main__':\n    organizar()" } }] }] },
-                { titulo: "💎 FASE IV: Calidad", clases: [{ id: "mod8", titulo: "Módulo 8: Testing", temas: [{ id: "t8_1", titulo: "8.1 Pytest y MyPy", contenido: { texto: "Pruebas unitarias y tipado estático.", resumen: "🧪 Garantía de calidad:\n- Pytest: pruebas unitarias\n- MyPy: tipado estático\n- Black: estilo de código", codigo_ejemplo: "def suma(a: int, b: int) -> int:\n    return a + b\n\ndef test_suma():\n    assert suma(2,3) == 5" } }] }]
+                { titulo: "💻 FASE III: CLI UX", clases: [{ id: "mod7", titulo: "Módulo 7: Click y Rich", temas: [{ id: "t7_1", titulo: "CLI industrial", contenido: { texto: "Comandos organizar, limpiar, reporte", resumen: "⌨️ Click + Rich", codigo: "@click.command()\ndef organizar(): ..." } }] }] },
+                { titulo: "💎 FASE IV: Calidad", clases: [{ id: "mod8", titulo: "Módulo 8: Testing", temas: [{ id: "t8_1", titulo: "Pytest y MyPy", contenido: { texto: "Pruebas unitarias y tipado estático", resumen: "🧪 pytest, mypy, black", codigo: "def test_suma(): assert suma(2,2)==4" } }] }]
             ]
         }]
     };
 
-    // ==================== FUNCIONES PRINCIPALES ====================
-    function mostrarMensaje(texto, tipo, id="verificationStatus") {
-        let div = document.getElementById(id);
-        if(!div) return;
-        div.style.display = "block";
-        div.className = `mensaje-${tipo}`;
-        div.innerHTML = `<i class="fas fa-${tipo==='exito'?'check-circle':tipo==='error'?'times-circle':'info-circle'}"></i> ${texto}`;
-        setTimeout(() => div.style.display = "none", 5000);
-    }
-    function mostrarToast(msg) {
-        let toast = document.createElement("div");
-        toast.style.position = "fixed"; toast.style.bottom = "20px"; toast.style.left = "50%";
-        toast.style.transform = "translateX(-50%)"; toast.style.backgroundColor = "#00ff9d";
-        toast.style.color = "#05070f"; toast.style.padding = "8px 16px"; toast.style.borderRadius = "40px";
-        toast.style.zIndex = "9999"; toast.style.fontWeight = "bold"; toast.innerText = msg;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 3000);
+    // ---------- FUNCIONES ----------
+    function mostrarMensaje(divId, texto, tipo) {
+        let d = document.getElementById(divId);
+        if(!d) return;
+        d.style.display = "block";
+        d.className = `mensaje-${tipo}`;
+        d.innerHTML = texto;
+        setTimeout(() => d.style.display = "none", 4000);
     }
 
     async function verificarUsuario(cedula) {
-        const loader = document.getElementById("loaderIndicator");
-        const statusDiv = document.getElementById("verificationStatus");
-        const registerBtn = document.getElementById("registerDirectBtn");
+        const loader = document.getElementById("accesoLoader");
+        const statusDiv = document.getElementById("accesoStatus");
         loader.style.display = "inline-block";
         statusDiv.style.display = "none";
-        registerBtn.style.display = "none";
         try {
-            const url = `${APPS_SCRIPT_URL}?cedula=${encodeURIComponent(cedula)}`;
-            console.log("Consultando:", url);
-            const res = await fetch(url);
-            const data = await res.json();
+            const resp = await fetch(`${SCRIPT_URL}?cedula=${encodeURIComponent(cedula)}`);
+            const data = await resp.json();
             if(data.exists) {
-                usuarioActual = {
-                    cedula: data.cedula, nombres: data.nombres, apellidos: data.apellidos,
-                    telefono: data.telefono || "", email: data.email || "",
-                    nucleo: data.nucleo, pnf: data.pnf, trayecto: data.trayecto, semestre: data.semestre
+                usuario = {
+                    cedula: data.cedula,
+                    nombres: data.nombres || '',
+                    apellidos: data.apellidos || '',
+                    telefono: data.telefono || '',
+                    email: data.email || '',
+                    nucleo: data.nucleo || '',
+                    semestre: data.semestre || ''
                 };
                 await cargarProgreso(cedula);
-                document.getElementById("verificationSection").classList.add("oculto");
-                document.getElementById("contenidoPrincipal").classList.remove("oculto");
+                document.getElementById("accesoPanel").classList.add("oculto");
+                document.getElementById("contenidoCurso").classList.remove("oculto");
                 construirArbol();
-                let primerTema = cursoEstructura.trayectos[0].semestres[0].clases[0].temas[0];
-                mostrarTema(primerTema, cursoEstructura.trayectos[0].semestres[0].clases[0], cursoEstructura.trayectos[0].semestres[0]);
+                const primer = estructuraCurso.trayectos[0].semestres[0].clases[0].temas[0];
+                mostrarTema(primer, estructuraCurso.trayectos[0].semestres[0].clases[0]);
                 actualizarDrawer();
-                mostrarToast(`Bienvenido ${usuarioActual.nombres}`);
             } else {
-                statusDiv.style.display = "block";
-                statusDiv.className = "mensaje-info";
-                statusDiv.innerHTML = "Usuario no registrado. Complete el formulario.";
-                registerBtn.style.display = "inline-block";
+                mostrarMensaje("accesoStatus", "Usuario no registrado. Complete el formulario.", "info");
+                document.getElementById("accesoPanel").classList.add("oculto");
+                document.getElementById("registroPanel").classList.remove("oculto");
             }
         } catch(e) {
-            console.error("Error en verificación:", e);
-            statusDiv.style.display = "block";
-            statusDiv.className = "mensaje-error";
-            statusDiv.innerHTML = "Error de conexión con el servidor. Intente más tarde o contacte al administrador.";
-            // Modo demostración: mostramos botón de registrar de todas formas
-            registerBtn.style.display = "inline-block";
+            console.error(e);
+            mostrarMensaje("accesoStatus", "Error de conexión con Google Sheets", "error");
         } finally {
             loader.style.display = "none";
         }
     }
 
-    async function registrarUsuario() {
+    async function registrarNuevoUsuario() {
         let cedula = document.getElementById("cedulaInput").value.trim();
-        let nombres = document.getElementById("nombres").value.trim();
-        let apellidos = document.getElementById("apellidos").value.trim();
-        let telefono = document.getElementById("telefono").value.trim();
-        let email = document.getElementById("email").value.trim();
-        let nucleo = document.getElementById("nucleo").value;
-        let semestre = document.getElementById("semestre").value;
+        let nombres = document.getElementById("regNombres").value.trim();
+        let apellidos = document.getElementById("regApellidos").value.trim();
+        let telefono = document.getElementById("regTelefono").value.trim();
+        let email = document.getElementById("regEmail").value.trim();
+        let nucleo = document.getElementById("regNucleo").value;
+        let semestre = document.getElementById("regSemestre").value;
         if(!cedula || !nombres || !apellidos || !telefono || !email) {
-            mostrarMensaje("Complete todos los campos (nombres, apellidos, teléfono, correo)", "error");
+            alert("Complete todos los campos obligatorios");
             return;
         }
         let fd = new FormData();
@@ -251,171 +232,188 @@
         fd.append("trayecto", "Arquitectura Industrial");
         fd.append("semestre", semestre);
         try {
-            let res = await fetch(APPS_SCRIPT_URL, { method: "POST", body: fd });
-            let data = await res.json();
+            let resp = await fetch(SCRIPT_URL, { method: "POST", body: fd });
+            let data = await resp.json();
             if(data.result === "success") {
-                usuarioActual = { cedula, nombres, apellidos, telefono, email, nucleo, pnf: "Arquitectura Software", trayecto: "Arquitectura Industrial", semestre };
-                actualizarDrawer();
-                document.getElementById("registrationSection").classList.add("oculto");
-                document.getElementById("contenidoPrincipal").classList.remove("oculto");
+                usuario = { cedula, nombres, apellidos, telefono, email, nucleo, semestre };
+                await cargarProgreso(cedula);
+                document.getElementById("registroPanel").classList.add("oculto");
+                document.getElementById("contenidoCurso").classList.remove("oculto");
                 construirArbol();
-                let primerTema = cursoEstructura.trayectos[0].semestres[0].clases[0].temas[0];
-                mostrarTema(primerTema, cursoEstructura.trayectos[0].semestres[0].clases[0], cursoEstructura.trayectos[0].semestres[0]);
-                mostrarToast("Registro exitoso");
+                const primer = estructuraCurso.trayectos[0].semestres[0].clases[0].temas[0];
+                mostrarTema(primer, estructuraCurso.trayectos[0].semestres[0].clases[0]);
+                actualizarDrawer();
+                alert("Registro exitoso");
             } else throw new Error(data.message);
-        } catch(e) {
-            mostrarMensaje("Error al registrar: " + e.message, "error");
-        }
+        } catch(e) { alert("Error: " + e.message); }
     }
 
     async function cargarProgreso(cedula) {
         try {
-            let res = await fetch(`${APPS_SCRIPT_URL}?cedula=${cedula}&accion=progreso`);
-            let data = await res.json();
-            if(data.progreso) progresoUsuario = data.progreso;
-        } catch(e) { console.warn(e); }
+            let resp = await fetch(`${SCRIPT_URL}?cedula=${cedula}&accion=progreso`);
+            let data = await resp.json();
+            if(data.progreso) progreso = data.progreso;
+        } catch(e) {}
     }
 
-    async function marcarTemaCompletado(tema) {
-        if(progresoUsuario[tema.id]) { mostrarMensaje("Ya completado", "info"); return; }
+    async function marcarCompletado(tema) {
+        if(progreso[tema.id]) return;
         let fd = new FormData();
         fd.append("accion", "progreso");
-        fd.append("cedula", usuarioActual.cedula);
+        fd.append("cedula", usuario.cedula);
         fd.append("temaId", tema.id);
         fd.append("temaTitulo", tema.titulo);
         try {
-            let res = await fetch(APPS_SCRIPT_URL, { method: "POST", body: fd });
-            let data = await res.json();
+            let resp = await fetch(SCRIPT_URL, { method: "POST", body: fd });
+            let data = await resp.json();
             if(data.result === "success") {
-                progresoUsuario[tema.id] = true;
-                mostrarToast("Tema completado");
-                let li = document.querySelector(`.tema-item[data-tema-id="${tema.id}"]`);
-                if(li) { li.querySelector("i").className = "fas fa-check-circle completado-badge"; li.classList.add("completado"); }
+                progreso[tema.id] = true;
+                document.querySelector(`.tema-item[data-id="${tema.id}"] i`).className = "fas fa-check-circle";
+                document.querySelector(`.tema-item[data-id="${tema.id}"]`).classList.add("completado");
                 document.getElementById("btnCompletarTema").style.display = "none";
-            } else throw new Error(data.message);
-        } catch(e) { mostrarMensaje("Error al guardar progreso", "error"); }
+            }
+        } catch(e) {}
     }
 
-    async function guardarAsistencia() {
-        let fecha = document.getElementById("attendanceDate").value;
-        let claseId = document.getElementById("attendanceClassId").value;
-        let presente = document.getElementById("attendanceStatus").value;
-        if(!fecha || !claseId) { mostrarMensaje("Seleccione fecha y clase", "error", "attendanceMessage"); return; }
-        let fd = new FormData();
-        fd.append("accion", "asistencia");
-        fd.append("fecha", fecha);
-        fd.append("cedula", usuarioActual.cedula);
-        fd.append("nombre", `${usuarioActual.nombres} ${usuarioActual.apellidos}`);
-        fd.append("claseId", claseId);
-        fd.append("presente", presente);
-        try {
-            let res = await fetch(APPS_SCRIPT_URL, { method: "POST", body: fd });
-            let data = await res.json();
-            if(data.result === "success") { mostrarToast("Asistencia registrada"); document.getElementById("attendanceModal").classList.remove("active"); }
-            else throw new Error(data.message);
-        } catch(e) { mostrarMensaje("Error al registrar asistencia", "error", "attendanceMessage"); }
-    }
-
-    // ==================== UI y Árbol ====================
+    // ----- Árbol de navegación -----
     function construirArbol() {
-        let cont = document.getElementById("arbolNavegacion");
+        const cont = document.getElementById("arbolNavegacion");
         cont.innerHTML = "";
-        let trayecto = cursoEstructura.trayectos[0];
-        let ul = document.createElement("ul"); ul.className = "tree";
-        trayecto.semestres.forEach(semestre => {
-            let liSem = document.createElement("li");
-            let detSem = document.createElement("details");
-            let sumSem = document.createElement("summary");
-            sumSem.innerHTML = `<i class="fas fa-layer-group"></i> ${semestre.titulo}`;
-            detSem.appendChild(sumSem);
-            let ulClases = document.createElement("ul");
-            semestre.clases.forEach(clase => {
-                let liClase = document.createElement("li");
-                let detClase = document.createElement("details");
-                let sumClase = document.createElement("summary");
-                sumClase.innerHTML = `<i class="fas fa-code-branch"></i> ${clase.titulo}`;
-                detClase.appendChild(sumClase);
-                let ulTemas = document.createElement("ul");
-                clase.temas.forEach(tema => {
-                    let liTema = document.createElement("li");
+        const raiz = estructuraCurso.trayectos[0];
+        const ul = document.createElement("ul"); ul.className = "tree";
+        raiz.semestres.forEach(sem => {
+            const liSem = document.createElement("li");
+            const det = document.createElement("details");
+            const sum = document.createElement("summary");
+            sum.innerHTML = `<i class="fas fa-folder"></i> ${sem.titulo}`;
+            det.appendChild(sum);
+            const ulClases = document.createElement("ul");
+            sem.clases.forEach(cls => {
+                const liCls = document.createElement("li");
+                const detCls = document.createElement("details");
+                const sumCls = document.createElement("summary");
+                sumCls.innerHTML = `<i class="fas fa-book"></i> ${cls.titulo}`;
+                detCls.appendChild(sumCls);
+                const ulTemas = document.createElement("ul");
+                cls.temas.forEach(tema => {
+                    const liTema = document.createElement("li");
                     liTema.className = "tema-item";
-                    liTema.setAttribute("data-tema-id", tema.id);
-                    let icon = document.createElement("i");
-                    icon.className = progresoUsuario[tema.id] ? "fas fa-check-circle completado-badge" : "far fa-circle";
-                    let span = document.createElement("span");
+                    if(progreso[tema.id]) liTema.classList.add("completado");
+                    liTema.setAttribute("data-id", tema.id);
+                    const icon = document.createElement("i");
+                    icon.className = progreso[tema.id] ? "fas fa-check-circle" : "far fa-circle";
+                    const span = document.createElement("span");
                     span.textContent = tema.titulo;
-                    liTema.appendChild(icon); liTema.appendChild(span);
-                    liTema.addEventListener("click", (e) => { e.stopPropagation(); mostrarTema(tema, clase, semestre); });
+                    liTema.appendChild(icon);
+                    liTema.appendChild(span);
+                    liTema.onclick = (e) => { e.stopPropagation(); mostrarTema(tema, cls); };
                     ulTemas.appendChild(liTema);
                 });
-                detClase.appendChild(ulTemas);
-                liClase.appendChild(detClase);
-                ulClases.appendChild(liClase);
+                detCls.appendChild(ulTemas);
+                liCls.appendChild(detCls);
+                ulClases.appendChild(liCls);
             });
-            detSem.appendChild(ulClases);
-            liSem.appendChild(detSem);
+            det.appendChild(ulClases);
+            liSem.appendChild(det);
             ul.appendChild(liSem);
         });
         cont.appendChild(ul);
     }
 
-    function mostrarTema(tema, clase, semestre) {
-        temaSeleccionado = { tema, clase, semestre };
-        let div = document.getElementById("contenidoTema");
-        let html = `<h2>${tema.titulo}</h2><p><em>${clase.descripcion || clase.titulo}</em></p>`;
-        html += `<div class="resumen-tree"><i class="fas fa-folder-tree"></i> <strong>Estructura / Resumen</strong><pre>${escapeHtml(tema.contenido.resumen || "No definido")}</pre></div>`;
-        html += `<div>${tema.contenido.texto.replace(/\n/g, "<br>")}</div>`;
-        if(tema.contenido.codigo_ejemplo) html += `<pre><code>${escapeHtml(tema.contenido.codigo_ejemplo)}</code></pre>`;
-        div.innerHTML = html;
-        if(editor) editor.setValue(tema.contenido.codigo_ejemplo || "# Escribe aquí");
-        else editor = CodeMirror.fromTextArea(document.getElementById("codeEditor"), { mode: "python", lineNumbers: true, autoCloseBrackets: true });
-        let btnComp = document.getElementById("btnCompletarTema");
-        if(progresoUsuario[tema.id]) btnComp.style.display = "none";
-        else { btnComp.style.display = "block"; btnComp.onclick = () => marcarTemaCompletado(tema); }
+    function mostrarTema(tema, clase) {
+        temaActual = tema;
+        const divContenido = document.getElementById("contenidoTema");
+        let html = `<h2>${tema.titulo}</h2>`;
+        html += `<div class="resumen-tree"><i class="fas fa-tree"></i> <strong>Estructura / Resumen</strong><pre>${escapeHtml(tema.contenido.resumen || "—")}</pre></div>`;
+        html += `<p>${tema.contenido.texto.replace(/\n/g, "<br>")}</p>`;
+        html += `<pre><code>${escapeHtml(tema.contenido.codigo || "# ejemplo")}</code></pre>`;
+        divContenido.innerHTML = html;
+
+        if(editor) editor.setValue(tema.contenido.codigo || "# Escribe aquí");
+        else editor = CodeMirror.fromTextArea(document.getElementById("codeEditor"), { mode: "python", lineNumbers: true });
+
+        const btnComp = document.getElementById("btnCompletarTema");
+        if(progreso[tema.id]) btnComp.style.display = "none";
+        else { btnComp.style.display = "inline-block"; btnComp.onclick = () => marcarCompletado(tema); }
     }
-    function escapeHtml(str) { return str.replace(/[&<>]/g, m => m==='&'?'&amp;':m==='<'?'&lt;':'&gt;'); }
+    function escapeHtml(str) { return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
+
     function actualizarDrawer() {
-        let html = `<p><i class="fas fa-id-card"></i> ${usuarioActual.cedula||"-"}</p><p><i class="fas fa-user"></i> ${usuarioActual.nombres||"-"} ${usuarioActual.apellidos||"-"}</p><p><i class="fas fa-phone"></i> ${usuarioActual.telefono||"-"}</p><p><i class="fas fa-envelope"></i> ${usuarioActual.email||"-"}</p><p><i class="fas fa-calendar-alt"></i> ${usuarioActual.semestre||"-"}</p>`;
-        document.getElementById("drawerUserInfo").innerHTML = html;
-    }
-    function cargarClasesEnSelect(selectId) {
-        let sel = document.getElementById(selectId);
-        sel.innerHTML = '<option value="">Seleccione módulo</option>';
-        cursoEstructura.trayectos[0].semestres.forEach(sem => sem.clases.forEach(cls => { let opt = document.createElement("option"); opt.value = cls.id; opt.textContent = `${sem.titulo} - ${cls.titulo}`; sel.appendChild(opt); }));
+        document.getElementById("drawerInfo").innerHTML = `
+            <p><i class="fas fa-id-card"></i> ${usuario.cedula}</p>
+            <p><i class="fas fa-user"></i> ${usuario.nombres} ${usuario.apellidos}</p>
+            <p><i class="fas fa-phone"></i> ${usuario.telefono || "—"}</p>
+            <p><i class="fas fa-envelope"></i> ${usuario.email || "—"}</p>
+            <p><i class="fas fa-graduation-cap"></i> ${usuario.semestre}</p>
+        `;
     }
 
-    // ==================== INICIALIZACIÓN ====================
     async function initPyodide() {
-        if(!pyodide) { pyodide = await loadPyodide(); await pyodide.loadPackage(["numpy", "scikit-learn"]); document.getElementById("terminal").innerHTML = ">> ✅ Pyodide listo."; }
+        if(!pyodide) {
+            pyodide = await loadPyodide();
+            await pyodide.loadPackage(["numpy"]);
+            document.getElementById("terminal").innerHTML = ">> Pyodide listo";
+        }
     }
     document.getElementById("runCodeBtn").onclick = async () => {
         if(!pyodide) await initPyodide();
-        let code = editor.getValue(), term = document.getElementById("terminal");
+        let code = editor.getValue();
+        let term = document.getElementById("terminal");
         term.innerHTML = ">> Ejecutando...\n";
-        try { let out = await pyodide.runPythonAsync(code); term.innerHTML += `>> ${out || "Sin salida"}\n`; } catch(e) { term.innerHTML += `>> ❌ ${e.message}\n`; }
+        try {
+            let out = await pyodide.runPythonAsync(code);
+            term.innerHTML += `>> ${out || "Sin salida"}`;
+        } catch(e) { term.innerHTML += `>> ❌ ${e.message}`; }
     };
+
+    // ----- EVENTOS -----
     window.addEventListener("DOMContentLoaded", async () => {
         await initPyodide();
-        const cedulaInput = document.getElementById("cedulaInput");
-        cedulaInput.addEventListener("input", (e) => {
-            let val = e.target.value.replace(/[^0-9]/g, "");
-            e.target.value = val;
-            if(val.length >= 6) verificarUsuario(val);
-        });
-        document.getElementById("registerDirectBtn").onclick = () => { document.getElementById("verificationSection").classList.add("oculto"); document.getElementById("registrationSection").classList.remove("oculto"); };
-        document.getElementById("registerUserBtn").onclick = registrarUsuario;
-        // UI eventos
+        document.getElementById("btnAcceder").onclick = () => {
+            let ced = document.getElementById("cedulaInput").value.trim();
+            if(ced.length < 4) { alert("Ingrese cédula válida"); return; }
+            verificarUsuario(ced);
+        };
+        document.getElementById("btnRegistrar").onclick = registrarNuevoUsuario;
+        document.getElementById("btnVolverAcceso").onclick = () => {
+            document.getElementById("registroPanel").classList.add("oculto");
+            document.getElementById("accesoPanel").classList.remove("oculto");
+        };
         document.getElementById("profileBtn").onclick = () => { document.getElementById("profileDrawer").classList.add("open"); document.getElementById("drawerOverlay").classList.add("open"); };
         document.getElementById("closeDrawerBtn").onclick = () => { document.getElementById("profileDrawer").classList.remove("open"); document.getElementById("drawerOverlay").classList.remove("open"); };
         document.getElementById("drawerOverlay").onclick = () => { document.getElementById("profileDrawer").classList.remove("open"); document.getElementById("drawerOverlay").classList.remove("open"); };
-        document.getElementById("attendanceBtn").onclick = () => { if(!usuarioActual.cedula) { mostrarMensaje("Inicie sesión", "error"); return; } document.getElementById("attendanceDate").value = new Date().toISOString().split("T")[0]; cargarClasesEnSelect("attendanceClassId"); document.getElementById("attendanceModal").classList.add("active"); };
-        document.getElementById("saveAttendanceBtn").onclick = guardarAsistencia;
+        document.getElementById("attendanceBtn").onclick = () => {
+            if(!usuario.cedula) { alert("Inicie sesión primero"); return; }
+            document.getElementById("attDate").value = new Date().toISOString().slice(0,10);
+            // llenar select de clases
+            let sel = document.getElementById("attClase");
+            sel.innerHTML = "";
+            estructuraCurso.trayectos[0].semestres.forEach(s => s.clases.forEach(c => { let opt = document.createElement("option"); opt.value = c.id; opt.textContent = c.titulo; sel.appendChild(opt); }));
+            document.getElementById("attendanceModal").classList.add("active");
+        };
+        document.getElementById("saveAttendanceBtn").onclick = async () => {
+            let fd = new FormData();
+            fd.append("accion", "asistencia");
+            fd.append("cedula", usuario.cedula);
+            fd.append("fecha", document.getElementById("attDate").value);
+            fd.append("claseId", document.getElementById("attClase").value);
+            fd.append("presente", document.getElementById("attStatus").value);
+            await fetch(SCRIPT_URL, { method: "POST", body: fd });
+            alert("Asistencia registrada");
+            document.getElementById("attendanceModal").classList.remove("active");
+        };
         document.getElementById("closeAttendanceModal").onclick = () => document.getElementById("attendanceModal").classList.remove("active");
         document.getElementById("adminBtn").onclick = () => document.getElementById("adminModal").classList.add("active");
         document.getElementById("closeAdminModal").onclick = () => document.getElementById("adminModal").classList.remove("active");
-        document.getElementById("loginAdminBtn").onclick = () => { if(document.getElementById("adminPassword").value === "admin123") { document.getElementById("adminPanel").style.display = "block"; mostrarToast("Admin OK"); } else mostrarMensaje("Contraseña incorrecta", "error", "attendanceMessage"); };
-        let dark = localStorage.getItem("darkMode") === "true"; if(dark) document.body.classList.add("dark-mode");
-        document.getElementById("darkModeToggle").onclick = () => { document.body.classList.toggle("dark-mode"); localStorage.setItem("darkMode", document.body.classList.contains("dark-mode")); };
+        document.getElementById("loginAdminBtn").onclick = () => {
+            if(document.getElementById("adminPass").value === "admin123") document.getElementById("adminPanel").style.display = "block";
+            else alert("Contraseña incorrecta");
+        };
+        document.getElementById("darkModeToggle").onclick = () => {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem("dark", document.body.classList.contains("dark-mode"));
+        };
+        if(localStorage.getItem("dark") === "true") document.body.classList.add("dark-mode");
         window.onclick = (e) => { if(e.target.classList.contains("modal")) e.target.classList.remove("active"); };
     });
 </script>
