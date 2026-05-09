@@ -47,6 +47,7 @@
         .loader { display: inline-block; width: 18px; height: 18px; border: 2px solid #00f3ff; border-radius: 50%; border-top-color: transparent; animation: spin 0.6s linear infinite; margin-left: 8px; vertical-align: middle; }
         @keyframes spin { to { transform: rotate(360deg); } }
         .theme-card { background: rgba(0,255,157,0.05); border-radius: 1rem; padding: 0.8rem; margin: 1rem 0; border-left: 4px solid #00f3ff; }
+        .resumen-tree { background: rgba(0,255,157,0.05); border-radius: 0.8rem; padding: 0.5rem; font-family: monospace; white-space: pre-wrap; margin: 0.5rem 0; }
         details { margin: 0.8rem 0; background: rgba(0,0,0,0.2); border-radius: 1rem; padding: 0.5rem; }
         summary { font-weight: 700; cursor: pointer; color: #00f3ff; }
         .drawer { position: fixed; top: 0; left: -280px; width: 260px; height: 100%; background: #0a0f1f; border-right: 2px solid #00f3ff; transition: left 0.3s; padding: 1rem; z-index: 200; }
@@ -131,7 +132,7 @@
     <div class="footer-note" style="text-align:center; font-size:0.7rem; margin-top:2rem;">⚡ SGO Class · Arquitectura de Software Industrial</div>
 </div>
 
-<!-- DRAWER Y MODALES (sin cambios, igual que antes) -->
+<!-- DRAWER Y MODALES -->
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <div class="drawer" id="profileDrawer"><button class="close-drawer" id="closeDrawerBtn">&times;</button><h3>Mi perfil</h3><div id="drawerUserInfo"></div></div>
 <div id="attendanceModal" class="modal"><div class="modal-content"><span class="modal-close" id="closeAttendanceModal">&times;</span><h2>Asistencia</h2><input type="date" id="attendanceDate"><select id="attendanceClassId"></select><select id="attendanceStatus"><option value="Sí">Presente</option><option value="No">Ausente</option></select><button id="saveAttendanceBtn" class="btn-submit">Guardar</button><div id="attendanceMessage" class="mensaje-info" style="display:none;"></div></div></div>
@@ -139,7 +140,7 @@
 
 <script src="https://cdn.jsdelivr.net/pyodide/v0.26.1/full/pyodide.js"></script>
 <script>
-    // ==================== CONFIGURACIÓN Y ESTRUCTURA DEL CURSO (con nuevos campos: consideraciones, bibliografia) ====================
+    // ==================== CONFIGURACIÓN Y ESTRUCTURA DEL CURSO ====================
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby_ZbCVN8NLgRhIr68Cax57pJAFOX04_XGtKE7gSU7kfhyPO7EgAxV3Mf1qFBCIW75bZA/exec";
     let usuarioActual = { cedula: '', nombres: '', apellidos: '', telefono: '', email: '', nucleo: '', pnf: 'Arquitectura Software', trayecto: 'Arquitectura Industrial', semestre: '' };
     let progresoUsuario = {};
@@ -148,7 +149,7 @@
     let pyodide = null;
     let editor = null;
 
-    // Estructura mejorada con consideraciones y bibliografía por tema
+    // Estructura completa (8 módulos, con consideraciones y bibliografía)
     const cursoEstructura = {
         trayectos: [{
             titulo: "Arquitectura de Software Industrial",
@@ -231,7 +232,7 @@
         }]
     };
 
-    // ========== FUNCIONES BÁSICAS (igual que antes, pero con la mejora de stdout para Pyodide) ==========
+    // ========== FUNCIONES BÁSICAS (verificación, registro, progreso) ==========
     function mostrarToast(mensaje) {
         let toast = document.createElement('div');
         toast.style.position = 'fixed'; toast.style.bottom = '20px'; toast.style.left = '50%';
@@ -259,7 +260,6 @@
         `;
     }
 
-    // Verificación automática (funcional)
     function autoVerifyCedula(cedula) {
         const animDiv = document.getElementById('verificationAnimation');
         const statusDiv = document.getElementById('verificationStatus');
@@ -348,7 +348,7 @@
         } catch(err) { mostrarMensaje('Error al guardar progreso: ' + err.message, 'error'); }
     }
 
-    // ========== ÁRBOL Y VISUALIZACIÓN DE TEMA CON ACORDEONES ==========
+    // ========== ÁRBOL Y VISUALIZACIÓN DE TEMA ==========
     function construirArbol() {
         const contenedor = document.getElementById('arbolNavegacion');
         contenedor.innerHTML = '';
@@ -396,21 +396,17 @@
         const container = document.getElementById('contenidoTema');
         let html = `<h2>${tema.titulo}</h2>`;
         html += `<div class="theme-card"><strong>📖 Teoría</strong><br>${tema.contenido.texto.replace(/\n/g, '<br>')}</div>`;
-        // Resumen tipo árbol
         html += `<div class="resumen-tree"><i class="fas fa-folder-tree"></i> <strong>Estructura / Resumen</strong><pre>${escapeHtml(tema.contenido.resumen || 'Sin resumen')}</pre></div>`;
-        // Consideraciones (desplegable)
         if (tema.consideraciones && tema.consideraciones.length) {
             html += `<details><summary><i class="fas fa-lightbulb"></i> 📌 Consideraciones técnicas</summary><ul>`;
             tema.consideraciones.forEach(c => html += `<li>${c}</li>`);
             html += `</ul></details>`;
         }
-        // Bibliografía (desplegable)
         if (tema.bibliografia && tema.bibliografia.length) {
             html += `<details><summary><i class="fas fa-book"></i> 📚 Bibliografía / Referencias</summary><ul>`;
             tema.bibliografia.forEach(b => html += `<li>${b}</li>`);
             html += `</ul></details>`;
         }
-        // Código de ejemplo
         if (tema.contenido.codigo_ejemplo) {
             html += `<pre><code>${escapeHtml(tema.contenido.codigo_ejemplo)}</code></pre>`;
         }
@@ -451,29 +447,29 @@
     // ========== ADMIN ==========
     function loginAdmin() { const pass = document.getElementById('adminPassword').value; if (pass === "admin123") { document.getElementById('adminPanel').style.display = 'block'; mostrarToast('Acceso concedido'); } else mostrarMensaje('Contraseña incorrecta', 'error', 'attendanceMessage'); }
 
-    // ========== PYODIDE CON CAPTURA DE stdout ==========
+    // ========== PYODIDE CON CAPTURA DE stdout (ESTABLE) ==========
     async function initPyodide() {
         if (!pyodide) {
             pyodide = await loadPyodide();
             await pyodide.loadPackage(["numpy", "scikit-learn"]);
-            // Redirigir stdout para capturar print
-            pyodide.runPython(`
+            // Configuración robusta para capturar print sin errores
+            await pyodide.runPythonAsync(`
 import sys
 from io import StringIO
-__stdout = sys.stdout
-__stdout_buffer = StringIO()
-class Tee:
+__stdout_capture = StringIO()
+__original_stdout = sys.stdout
+class CaptureStdout:
     def write(self, data):
-        __stdout.write(data)
-        __stdout_buffer.write(data)
+        __original_stdout.write(data)
+        __stdout_capture.write(data)
     def flush(self):
-        __stdout.flush()
-        __stdout_buffer.flush()
-sys.stdout = Tee()
-def get_output():
-    out = __stdout_buffer.getvalue()
-    __stdout_buffer.truncate(0)
-    __stdout_buffer.seek(0)
+        __original_stdout.flush()
+        __stdout_capture.flush()
+sys.stdout = CaptureStdout()
+def get_captured_output():
+    out = __stdout_capture.getvalue()
+    __stdout_capture.truncate(0)
+    __stdout_capture.seek(0)
     return out
             `);
             document.getElementById('terminal').innerHTML = '>> ✅ Pyodide listo (stdout capturado)';
@@ -486,10 +482,10 @@ def get_output():
         const term = document.getElementById('terminal');
         term.innerHTML = '>> Ejecutando...\n';
         try {
-            // Limpiar buffer antes de ejecutar
-            await pyodide.runPythonAsync("__stdout_buffer.truncate(0); __stdout_buffer.seek(0)");
+            // Limpiar buffer antes
+            await pyodide.runPythonAsync("__stdout_capture.truncate(0); __stdout_capture.seek(0)");
             await pyodide.runPythonAsync(code);
-            const output = await pyodide.runPythonAsync("get_output()");
+            const output = await pyodide.runPythonAsync("get_captured_output()");
             term.innerHTML += `>> ${output || 'Ejecutado sin salida.'}\n`;
         } catch (e) {
             term.innerHTML += `>> ❌ Error: ${e.message}\n`;
@@ -507,7 +503,6 @@ def get_output():
         document.getElementById('loginAdminBtn').addEventListener('click', loginAdmin);
         document.getElementById('saveClassConfigBtn').addEventListener('click', () => mostrarMensaje('Configuración guardada (demo)', 'exito'));
 
-        // UI eventos
         document.getElementById('profileBtn').addEventListener('click', () => { document.getElementById('profileDrawer').classList.add('open'); document.getElementById('drawerOverlay').classList.add('open'); });
         document.getElementById('closeDrawerBtn').addEventListener('click', () => { document.getElementById('profileDrawer').classList.remove('open'); document.getElementById('drawerOverlay').classList.remove('open'); });
         document.getElementById('drawerOverlay').addEventListener('click', () => { document.getElementById('profileDrawer').classList.remove('open'); document.getElementById('drawerOverlay').classList.remove('open'); });
